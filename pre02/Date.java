@@ -1,19 +1,22 @@
 import java.io.*;
 import java.util.*;
 
-public class Hello {
+public class Date {
     public static void main(String[] args){
-        System.out.println("Hello world!");
+       
+		String day = "Friday";
+		String monthWord = "June";
+		int date = 19;
+		int month = 6;
+		int year = 2020;
+		
+		System.out.println("Hello world!");
+				
+		System.out.println("Today's date is : ");
+		System.out.println("American format : ");
+		System.out.println(day + ", " + monthWord + " " + date + ", " + year);
+		System.out.println("European format : ");
+		System.out.print(day + " " + date + " " + month + " " + year);
+		
     }
 }
-string day;
-int date,month,year;
-day = Friday;
-date = 19;
-month = 6;
-year = 2020;
-
-System.out.println("date =", date);
-System.out.println("month =", month);
-System.out.println("year =", year);
-System.out.println("day =", day);
