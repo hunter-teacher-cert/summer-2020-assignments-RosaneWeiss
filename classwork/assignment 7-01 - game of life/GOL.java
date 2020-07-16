@@ -29,9 +29,10 @@ public class GOL{
 		// loop through to find neighboors
 		int r=0;
 		int c=0;
-		
+		for ( int i=0; i< 100; i++){
 		board = generateNextBoard(board);
 		printBoard(board);
+		}
     }
 	
     /*
@@ -50,6 +51,8 @@ public class GOL{
 
     
     public static void printBoard(char[][] board){
+		
+	System.out.print("[0;0H\n");	
 	for (int r = 0; r < board.length; r++) {
 	    for (int c = 0; c < board[r].length; c++) {
 		System.out.printf("%c",board[r][c]);
@@ -57,7 +60,17 @@ public class GOL{
 	    System.out.println();
 	}
 	System.out.println("\n\n------------------\n\n");
+	delay (1000);
     }
+	
+	public static void delay(int n)
+	{ 
+		try {
+			Thread.sleep(n);
+			}
+		catch(InterruptedException e) {}
+	}
+		
 
     /*
       set the cell (r,c) to value

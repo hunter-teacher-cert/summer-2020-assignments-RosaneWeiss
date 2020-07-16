@@ -24,14 +24,15 @@ class Driver{
 	s.push("A");
 	s.push("R");
 	String r = s.reverse();
+	System.out.println(s);
 	System.out.println(isPalindrome(s));
 	
     }
-	public String reverse() {
+	public static String reverse(String s) {
 	/*- build and return a String with all the elements of the array in a printable form */ 
-		String stringdata = " ";
+		Stack<Character> store = new Stack<Character>();String stringdata = " ";
 		String x;
-		while (s.isEmpty == false) {
+		while (s.isEmpty() == false) {
 			x = s.pop();
 			stringdata = stringdata + " " + x;
 	    }

@@ -9,7 +9,14 @@ public class LList{
 	head = null;
     }
 
+/************************************************************/
+
     public void addFront(String data){
+		
+	if (data == null) {
+      throw new IllegalArgumentException();
+    }//exception	
+		
 	Node newnode = new Node(data);
 
 	// first point the new node to the beginning
@@ -19,6 +26,8 @@ public class LList{
 	head = newnode;
 
     }
+	
+/************************************************************/
 
     public String toString(){
 	String s = "";
@@ -37,6 +46,8 @@ public class LList{
 	s = s + "null";
 	return s;
     }
+
+/************************************************************/
 
     public int length(){
 	int l = 0;
@@ -57,6 +68,8 @@ public class LList{
 	return l;
     }
 	
+	/************************************************************/
+	
  public boolean isEmpty(){
 	 if (head == null){
 		 return true;
@@ -65,11 +78,17 @@ public class LList{
 	} // end if
 	// return  (head == null);
  }
+ /**************************************************************/
  
  public String get(int index) {
 		/*Returns the value (not the Node) at index.
 		If index is out of bounds, return null. */
 		// get the head //
+		
+if (index  > length() -1  || index < 0) {
+      throw new  IndexOutOfBoundsException();
+    }//exception
+		
 		
 		int position = 0;
 		Node currNode;
@@ -92,9 +111,19 @@ public class LList{
 	}
  }
  
+ /*************************************************************/
+ 
  public void set(int index, String value){
 /*Set the Node at index to contain value
 If index is invalid, do nothing.*/
+
+	 	if (index > length() - 1 || index < 0) {
+      throw new  IndexOutOfBoundsException();
+    }//exception
+		if (value == null) {
+      throw new  IllegalArgumentException();
+    }//exception
+		
  	int position = 0;
 		Node currNode;
 		currNode = head;
@@ -111,14 +140,23 @@ If index is invalid, do nothing.*/
 		 currNode.setData(value);
 	}
 }
- /* ________________  */
+
+ /**************************************************** */
+ 
    public void insert(int index, String value){
 	// make new node, add the value there already
 		Node newNode = new Node(value);
 		// make a tmp node
 		int position = 0;
 		Node currNode = head;
-		
+		if (index > length() - 1 || index < 0) {
+      throw new  IndexOutOfBoundsException();
+    }//exception
+	
+if (value == null) {
+      throw new  IllegalArgumentException();
+    }//exception
+	
 	if( index == 0){
 		addFront(value); // adds a new head
 	} else {
@@ -144,11 +182,20 @@ If index is invalid, do nothing.*/
 	} //end index==0
     }
 
+
+/*************************************************************/
+
     public void remove(int index){
 	// make a tmp node
 	// move tmp down the list until it's BEFORE the node we want to delete
 	// change tmp's next pointer to skip the node we are deletin 
-    if (index == 0) {
+    	
+		if (index > length() - 1 || index < 0) {
+      throw new  IndexOutOfBoundsException();
+    }//exception
+	
+	
+	if (index == 0) {
 		//removing the first?
 			head = head.getNext();
 			
@@ -171,9 +218,16 @@ If index is invalid, do nothing.*/
 		} // end if ind = 0
 	}  
 	
-	
+	/*******************************************************************/
 			
     public int search(String key) {
+		
+		
+			if (key == null) {
+      throw new  IllegalArgumentException();
+    }//exception
+		
+						
 		Node currNode = head;
 		int position = 0;
 		while (currNode.getNext() != null ){
