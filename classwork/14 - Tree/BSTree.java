@@ -43,7 +43,7 @@ public class BSTree {
 		
 		TreeNode front = root;
 		TreeNode trailer = root; 
-		int frontValue = front.getData();
+		
 		
 		while ( front != null) {
 		/* search until fall off the tree 
@@ -51,7 +51,7 @@ public class BSTree {
 		front = value of the node on the tree
 		trailre = value of the node it came from;
 		*/
-			
+		int frontValue = front.getData();	
 		if (frontValue == key){
 			//the key is a duplicate , already in the tree
 			return;
@@ -68,7 +68,8 @@ public class BSTree {
 				}
 		}
 		}
-		// found point of insertion. inset
+		// found point of insertion. insert
+		//System.out.println(key+ " " +trailer.getData());
 		if (key > trailer.getData()) {
 			trailer.setRight(newNode);
 		} else {
