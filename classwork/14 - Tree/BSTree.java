@@ -7,7 +7,29 @@ public class BSTree {
     public BSTree(){
 	root = null;
     }
+	private void traverse(TreeNode current){
+	if (current == null){
+		return;}
+	
+	//process the current node
+	System.out.print(current.getData()+", ");
+	
+	// recursively print out the left subtree
+	//System.out.println("to the left "+ current.getData());
+	traverse(current.getLeft());
+	
+	// recursively print out the right subtree
+	//System.out.println("to the right " + current.getData());
+	traverse(current.getRight());
 
+    }
+	
+	
+	public void traverse(){
+	traverse(root);
+	System.out.println();
+    }
+	
 /* insert a value */
 	public void insert(int key) {
 		
@@ -52,7 +74,7 @@ public class BSTree {
 		} else {
 			trailer.setLeft(newNode);
 		}
-		return;
+		
 	
 	}
 		
