@@ -39,6 +39,7 @@ public class BSTree {
 
 	// if the key wasn't in the tree
 	if (front == null){
+		System.out.println( "key not found, nothing to delete");
 	    return;
 	}
 
@@ -52,12 +53,12 @@ public class BSTree {
 	    // repoint front's parent to null
 		//trailer.setData() = null;
 		// could just set both to null, to make it easier?
-		if (front.getLeft() == null){
+		if (trailer.getLeft() == front){
 			// key to delete is on the right side since the left is null
-			trailer.setRight(null); 
+			trailer.setLeft(null); 
 		} else{
 			// key to delete is on the left side since the right is null
-			trailer.setLeft(null);
+			trailer.setRight(null);
 		} //end case 1
 		
 	}//	else {
@@ -80,20 +81,36 @@ public class BSTree {
 	     
 			// find the node with the largest value on fronts left subtree
 			// and replace front with it.
-			//trailer = front;
-			//front = front.getLeft();
-			//while (trailer.getData(trailer) < front.getData(front) || trailer.getLeft() != null){ // compile error
-			//	trailer = front;
-			//	front = front.getRight();
-			//  // end while
-				// least amount found	
-				// key to delete is on the left side since the right is  -  the following trailer to this trailer
-			//	trailer.setLeft(front.getLeft());
+			trailer = front;
+			front = front.getLeft();
+			//set the parent to the max amount found on the right tree and delete the max
+			//System.out.println(front.getData());
+			trailer.setData(findMax(front));
+			//System.out.println(front.getData());
+			
+				// least amount found - front	
+				// key to replace is on the right side of the trailer of the front(go to parent and find the "right" sibling)
+				//point to the child of this parent, to the right
+				
+				// delete? - delete(front.setRight(null);
+				//System.out.println("trailer - coming from " + front + "value = " + front.getData());
 		} //end case 3
 	}  // end delete
 	
-	
-    	 
+	 private int findMax(TreeNode front){
+			int max = 0;
+			while (front != null ){ 
+				//get it before its gone
+				max = front.getData();
+				System.out.println(front.getData());
+				// go to the next 
+				front = front.getRight();
+				
+			} // end while
+				delete(max);
+			return max;
+	 }	
+			
     private void preorderTraverse(TreeNode current){
 	if (current == null)
 	    return;
