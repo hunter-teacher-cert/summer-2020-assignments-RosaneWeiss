@@ -24,8 +24,12 @@ public class DriverDelete {
 	t.delete(17); // not in the tree
 	t.preorderTraverse();
 		
-	t.delete(5); // 2 children
+	t.delete(5);  
 	t.preorderTraverse();
+	
+	t.delete(25);  
+	t.preorderTraverse();
+	
 	
 	}
 }
