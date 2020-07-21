@@ -1,0 +1,43 @@
+public class Person {
+
+
+/*
+I would create a 3D array, where 
+	the first index is the first level of last name,
+	th second index is the second level, in case the first colide
+	the third is the first name and phone number
+	
+
+public class person {
+  private String lastName;
+  private String firstName;
+  private String phoneNumber;
+  
+  // other members not shown
+} 
+
+public class PhoneBook{
+	int [][][] Phone = new PhoneBook
+}
+
+if we use
+
+String s = "ABC";
+int i = s.charAt(0);
+
+Therefore, if you do
+String lastName = "Weiss";
+int i = lastName.charAt(0);
+so forthe first index, add the value for each character by doing a loop till the end of the string. 
+	Then find the module sum%73(or any prime number (They hold more remainders). 
+	If it collide, use the same sum but with another prime nmber, 67. That should give a unique combination (I hope)
+	Then use the same technique for the first name and put the first name and the phone number in the same cell.
+	
+1)The add will have 3 calculations, and if there is no colision, second index will be 0.
+2)Since the last name is unique, you can access it in 3 operations.
+3) Remove will get zeros to the array.
+4) list will need to go through it but skip if index1's data is zeros
+
+I am sure there is a bunch of unforseen problems with this thought because it seems too easy.....
+
+ 
