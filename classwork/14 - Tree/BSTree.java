@@ -7,30 +7,93 @@ public class BSTree {
     public BSTree(){
 	root = null;
     }
-	/*private void traverse(TreeNode current){
-	if (current == null){
-		return;}
 	
-	//process the current node
-	System.out.print(current.getData()+", ");
-	
-	// recursively print out the left subtree
-	//System.out.println("to the left "+ current.getData());
-	traverse(current.getLeft());
-	
-	// recursively print out the right subtree
-	//System.out.println("to the right " + current.getData());
-	traverse(current.getRight());
+	public void delete(int key){
 
-    }
+	// if the tree is empty, nothing to delete
+	if (root==null){
+	    return;
+	}
+	
+	/* find the node that we want to delete
+	 and the node above it using piggybacking
+		key = what is being deleted
+		front = value of the node on the tree
+		trailer = value of the node it came from;*/
+		
+	TreeNode front = root;
+	TreeNode trailer = root;
+
+	// do the piggyback loop
+	// until we either find the node or null
+	// if the key isn't present
+	while (front != null && front.getData() != key ){
+	    if (front.getData() < key){
+		trailer = front;
+		front = front.getRight();
+	    } else {
+		trailer = front;
+		front = front.getLeft();
+	    }
+	}
+
+	// if the key wasn't in the tree
+	if (front == null){
+	    return;
+	}
+
+	// if we get here
+	// front points to the node we want to delete
+	// and trailer points to the one above it
+
+	// case 1 -- the node we want to delete is a leaf(last one of the chain) - no children(both front are null)
+	if (front.getLeft() == null &&
+	    front.getRight() == null) {
+	    // repoint front's parent to null
+		//trailer.setData() = null;
+		// could just set both to null, to make it easier?
+		if (front.getLeft() == null){
+			// key to delete is on the right side since the left is null
+			trailer.setRight(null); 
+		} else{
+			// key to delete is on the left side since the right is null
+			trailer.setLeft(null);
+		} //end case 1
+		
+	}//	else {
+		if ((front.getLeft() == null && front.getRight() != null) ||(front.getRight() == null && front.getLeft() != null)) {
+		// case 2 -- the node we want to delete has one child  - only one side is null*/
+	    // repoint front's parent to front's child
+		
+		if (front.getLeft() == null)   {
+			// repoint front's parent to null
+			// key to delete is on the right side since the left is null - bring the following trailer to this trailer
+			
+			trailer.setRight(front.getRight()); 
+			} else{
+			// key to delete is on the left side since the right is  -  the following trailer to this trailer
+				trailer.setLeft(front.getLeft());
+			}// end else
+		} //end case 2 else {
+		if (front.getLeft() != null &&  front.getRight() != null) {
+		// case 3 -- the node we want to delete has two children
+	     
+			// find the node with the largest value on fronts left subtree
+			// and replace front with it.
+			//trailer = front;
+			//front = front.getLeft();
+			//while (trailer.getData(trailer) < front.getData(front) || trailer.getLeft() != null){ // compile error
+			//	trailer = front;
+			//	front = front.getRight();
+			//  // end while
+				// least amount found	
+				// key to delete is on the left side since the right is  -  the following trailer to this trailer
+			//	trailer.setLeft(front.getLeft());
+		} //end case 3
+	}  // end delete
 	
 	
-	public void traverse(){
-	traverse(root);
-	System.out.println();
-    }
-	*/
-	 
+    	 
     private void preorderTraverse(TreeNode current){
 	if (current == null)
 	    return;
@@ -112,7 +175,7 @@ public class BSTree {
 		/* search until fall off the tree 
 		key = what is being searched
 		front = value of the node on the tree
-		trailre = value of the node it came from;
+		trailer = value of the node it came from;
 		*/
 		int frontValue = front.getData();	
 		if (frontValue == key){
@@ -193,3 +256,27 @@ public class BSTree {
     
     
 }
+
+/* private void traverse(TreeNode current){
+	if (current == null){
+		return;}
+	
+	//process the current node
+	System.out.print(current.getData()+", ");
+	
+	// recursively print out the left subtree
+	//System.out.println("to the left "+ current.getData());
+	traverse(current.getLeft());
+	
+	// recursively print out the right subtree
+	//System.out.println("to the right " + current.getData());
+	traverse(current.getRight());
+
+    }
+	
+	
+	public void traverse(){
+	traverse(root);
+	System.out.println();
+    }
+	*/
