@@ -31,7 +31,9 @@ int i = lastName.charAt(0);
 so forthe first index, add the value for each character by doing a loop till the end of the string. 
 	Then find the module sum%73(or any prime number (They hold more remainders). 
 	If it collide, use the same sum but with another prime nmber, 67. That should give a unique combination (I hope)
-	Then use the same technique for the first name and put the first name and the phone number in the same cell.
+	Then use the same technique for the first name and put the first name and the phone number in the same cell.(If I need
+		to search by phone number I would create a new array with the 3indexes and the phone number, manipulating the indexed somehow to get smaller 
+		but still keeping the otiginal one so I can get to the original name array)
 	
 1)The add will have 3 calculations, and if there is no colision, second index will be 0.
 2)Since the last name is unique, you can access it in 3 operations.
@@ -39,5 +41,9 @@ so forthe first index, add the value for each character by doing a loop till the
 4) list will need to go through it but skip if index1's data is zeros
 
 I am sure there is a bunch of unforseen problems with this thought because it seems too easy.....
+
+If I would need a reverse by phne number, I would put the phone number in another array and use the indexes 1,2 and 3 in combination to find it. 
+add. multiple, etc and take modulus? I would save the phone number and the 3 indexes (like 346630) followed by the phone number. 
+Once I find he phonenumber, the indexes will guide me to the right position on the 3D table. Yes, it will take FOREVER!!!!
 
  
