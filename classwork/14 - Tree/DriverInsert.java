@@ -12,5 +12,7 @@ public class DriverInsert {
 	t.insert(7);
 	t.insert(8);
 	t.insert(3);
+	t.insert(25);
+	
 	}
 }
