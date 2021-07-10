@@ -1,0 +1,34 @@
+Answer 1:
+The output is:
+
+No,I wug.
+You wugga wugwug.
+I wug.
+
+
+explanation:
+1-First the main methid is executed. 
+2 - It will print "No,I " and then call method zoop.
+3 - method zoop is executed and it will call method baffle.
+4 -method baffled is executed and it prints "wug" - same line .
+Then it will call method ping.
+5 - Method ping will print "." and then go to next line. 
+Then method ping ends and controls get back to method baffle, which called ping.
+Method Ping was executed, so it goes to the next statement on zoop
+6 - Back in zoop, it prints "You wugga" and do the whole sequence for baffle again. 
+so it prints "wug" and repeats steps 4-5, which prints "wug."
+7 - zoop has no more commands, so control is returned to methid main .
+8 -Method main then prints "I " then calles method baffle again
+9 - method baffle repeates 4 - and prints "wug."
+
+Answer 2: 
+state of the program is what is being printed, I guess.
+At the first time ping is invoked, we completed 1-4 above
+So it will be printed
+
+No. I wug
+
+
+Answer 3:
+If we invoke baffle at the end of ping, the program will be in an infinite loop.
+ping will call baffle that will call ping that will call baffle and it will keep going forever , to infinity and beyond!!!
